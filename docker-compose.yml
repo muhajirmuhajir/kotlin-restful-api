@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  kotlin-rest-api:
+    image: muhajirmuhajir/kotlin-restapi:1
+    restart: unless-stopped
+    ports:
+      - 8000:8000
+    environment:
+      DATABASE_USERNAME: kotlin
+      DATABASE_PASSWORD: kotlin
+      DATABASE_URL: jdbc:postgresql://kotlin-postgres:5432/restful
+    depends_on:
+      - kotlin-postgres
+  kotlin-postgres:
+    container_name: "kotlin-postgres"
+    image: postgres:12-alpine
+    environment:
+      POSTGRES_PASSWORD: kotlin
+      POSTGRES_USER: kotlin
+      POSTGRES_DB: restful

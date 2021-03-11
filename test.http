@@ -1,0 +1,80 @@
+### create product success
+POST http://localhost:8000/api/products
+X-Api-Key: SECRET
+Content-Type: application/json
+Accept: application/json
+
+{
+    "id" : "P003",
+    "name" : "Speaker",
+    "price": 100000,
+    "quantity" : 50
+}
+
+### create product failed
+POST http://localhost:8000/api/products
+X-Api-Key: SECRET
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id" : "",
+  "name" : "",
+  "price": 0,
+  "quantity" : -1
+}
+
+### get product success
+GET http://localhost:8000/api/products/P001
+X-Api-Key: SECRET
+Accept: application/json
+
+### get product not found
+GET http://localhost:8000/api/products/notfound
+X-Api-Key: SECRET
+Accept: application/json
+
+### update product success
+PUT http://localhost:8000/api/products/P001
+X-Api-Key: SECRET
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name" : "New Lamp",
+  "price": 120000,
+  "quantity" : 30
+}
+
+### update product not found
+PUT http://localhost:8000/api/products/notfound
+X-Api-Key: SECRET
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name" : "New Lamp",
+  "price": 120000,
+  "quantity" : 30
+}
+
+### delete product success
+DELETE http://localhost:8000/api/products/P002
+X-Api-Key: SECRET
+Accept: application/json
+
+
+### delete product not found
+DELETE http://localhost:8000/api/products/notfound
+X-Api-Key: SECRET
+Accept: application/json
+
+### list product
+GET http://localhost:8000/api/products
+X-Api-Key: SECRET
+Accept: application/json
+
+### list product with query
+GET http://localhost:8000/api/products?size=2&page=1
+X-Api-Key: SECRET
+Accept: application/json
